@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Aya ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#ffd1dc,#ffc3a0);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+text-align:center;
+z-index:5;
+padding:20px;
+}
+
+h1{
+color:white;
+font-size:38px;
+margin-bottom:30px;
+text-shadow:0 0 20px rgba(255,255,255,.5);
+}
+
+button{
+padding:18px 45px;
+font-size:28px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff3d6e;
+cursor:pointer;
+transition:.35s;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+#final{
+display:none;
+animation:fade 2s;
+}
+
+@keyframes fade{
+from{opacity:0;transform:scale(.5);}
+to{opacity:1;transform:scale(1);}
+}
+
+.bigHeart{
+font-size:140px;
+animation:beat 1s infinite;
+filter:drop-shadow(0 0 20px red);
+}
+
+@keyframes beat{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.15);}
+}
+
+#loveText{
+color:white;
+font-size:34px;
+margin-top:20px;
+font-weight:bold;
+text-shadow:0 0 15px rgba(255,255,255,.6);
+}
+
+#sign{
+margin-top:20px;
+font-size:22px;
+color:white;
+opacity:.9;
+}
+
+.float{
+position:absolute;
+bottom:-60px;
+font-size:30px;
+animation:floatUp linear forwards;
+pointer-events:none;
+}
+
+@keyframes floatUp{
+to{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+.fall{
+position:absolute;
+top:-50px;
+font-size:28px;
+animation:fall linear forwards;
+pointer-events:none;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1 id="title">💌 عندي ليكي مفاجأة صغيرة</h1>
+
+<button id="btn">اضغطي هنا ❤️</button>
+
+<div id="final">
+
+<div class="bigHeart">❤️</div>
+
+<div id="loveText"></div>
+
+<div id="sign">
+Forever Yours ❤️<br>
+Mohamd
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const messages=[
+"بحبك ❤️",
+"بحبك أوي 🥹",
+"وجودك أحلى حاجة حصلتلي 🤍",
+"ابتسامتك بتسعد يومي 🌸",
+"مهما بعدتنا المسافات... هتفضلي أقرب واحدة لقلبي 🌍",
+"جاهزة للمفاجأة؟ 🌹"
+];
+
+let index=0;
+
+const btn=document.getElementById("btn");
+
+btn.onclick=function(){
+
+if(index<messages.length){
+btn.innerHTML=messages[index];
+index++;
+}
+else{
+
+document.getElementById("title").style.display="none";
+btn.style.display="none";
+document.getElementById("final").style.display="block";
+
+document.getElementById("loveText").innerHTML=
+"بحبك يا <span style='color:#ffe66d'>Aya</span><br>إلى ما لا نهاية ♾️❤️";
+
+hearts();
+flowers();
+
+}
+
+}
+
+function hearts(){
+
+setInterval(()=>{
+
+let h=document.createElement("div");
+
+h.className="float";
+
+h.innerHTML=Math.random()>0.5?"❤️":"💖";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),8000);
+
+},150);
+
+}
+
+function flowers(){
+
+for(let i=0;i<180;i++){
+
+setTimeout(()=>{
+
+let r=document.createElement("div");
+
+r.className="fall";
+
+r.innerHTML=Math.random()>0.5?"🌹":"🌸";
+
+r.style.left=Math.random()*100+"vw";
+
+r.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(r);
+
+setTimeout(()=>r.remove(),7000);
+
+},i*80);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
