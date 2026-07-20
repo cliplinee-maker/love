@@ -136,7 +136,7 @@ transform:translateY(110vh) rotate(360deg);
 
 <h1 id="title">💌 عندي ليكي مفاجأة صغيرة</h1>
 
-<button id="btn">اضغطي هنا ❤️</button>
+<button id="btn"> يلا بيناااا ❤️</button>
 
 <div id="final">
 
@@ -170,6 +170,9 @@ const btn=document.getElementById("btn");
 
 btn.onclick=function(){
 
+document.getElementById("clickSound").currentTime=0;
+document.getElementById("clickSound").play();
+
 if(index<messages.length){
 btn.innerHTML=messages[index];
 index++;
@@ -181,7 +184,7 @@ btn.style.display="none";
 document.getElementById("final").style.display="block";
 
 document.getElementById("loveText").innerHTML=
-"بحبك يا <span style='color:#ffe66d'>Aya</span><br>إلى ما لا نهاية ♾️❤️";
+"بحبك يا <span style='color:#ff4d88;text-shadow:0 0 15px #ff4d88;'>Aya</span><br>إلى ما لا نهاية ♾️❤️";
 
 hearts();
 flowers();
@@ -189,7 +192,6 @@ flowers();
 }
 
 }
-
 function hearts(){
 
 setInterval(()=>{
