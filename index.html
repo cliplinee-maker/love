@@ -8,15 +8,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+  #cat{
+position:fixed;
+bottom:20px;
+left:-150px;
+width:120px;
+z-index:9999;
+pointer-events:none;
+animation:catWalk 18s linear infinite;
+}
+
+@keyframes catWalk{
+0%{
+left:-150px;
+transform:scaleX(1);
+}
+49%{
+left:100vw;
+transform:scaleX(1);
+}
+50%{
+left:100vw;
+transform:scaleX(-1);
+}
+99%{
+left:-150px;
+transform:scaleX(-1);
+}
+100%{
+left:-150px;
+transform:scaleX(1);
+}
+}
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Cairo',sans-serif;
 }
-<audio id="clickSound" preload="auto">
-<source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" type="audio/mpeg">
-</audio>
+<img id="cat" src="https://media.tenor.com/QHk7r2D6kS0AAAAi/cat-walk.gif">
+  
+  
 body{
 overflow:hidden;
 height:100vh;
@@ -136,7 +168,7 @@ transform:translateY(110vh) rotate(360deg);
 
 <h1 id="title">💌 عندي ليكي مفاجأة صغيرة</h1>
 
-<button id="btn"> يلا بيناااا ❤️</button>
+<button id="btn">يلا بيناااا ❤️</button>
 
 <div id="final">
 
@@ -170,9 +202,6 @@ const btn=document.getElementById("btn");
 
 btn.onclick=function(){
 
-document.getElementById("clickSound").currentTime=0;
-document.getElementById("clickSound").play();
-
 if(index<messages.length){
 btn.innerHTML=messages[index];
 index++;
@@ -184,7 +213,7 @@ btn.style.display="none";
 document.getElementById("final").style.display="block";
 
 document.getElementById("loveText").innerHTML=
-"بحبك يا <span style='color:#ff4d88;text-shadow:0 0 15px #ff4d88;'>Aya</span><br>إلى ما لا نهاية ♾️❤️";
+"بحبك يا <span style='color:#ff4d88'>Aya</span><br>إلى ما لا نهاية ♾️❤️";
 
 hearts();
 flowers();
@@ -192,6 +221,7 @@ flowers();
 }
 
 }
+
 function hearts(){
 
 setInterval(()=>{
